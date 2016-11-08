@@ -1,0 +1,177 @@
+body
+{
+  background-color: #444444;
+}
+div
+{
+  background-color: #cccccc;
+  flex: none;
+}
+table,th,td
+{
+  border: 1px solid #000000;
+  border-collapse: collapse;
+  text-align: center
+}
+th,td
+{
+  border-left: 0px solid #000000;
+  border-right: 0px solid #000000;
+  padding: 5px;
+}
+th
+{
+  background-color: #cccccc; 
+}
+svg
+{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 1008px;
+  height: 610px;
+  fill: transparent;
+  stroke: transparent;
+  transition: stroke 0.333s;
+  //border: 1px solid #880000;
+  z-index: 2;
+}
+.body
+{
+  position: absolute;
+  top: 75px;
+  bottom: 17px;
+  left: 17px;
+  right: 17px;
+  overflow: scroll;
+  display: flex;
+  padding: 5px;
+  flex-flow:row wrap;
+}
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+}
+.char
+{
+  position: relative;
+  width: 100 px;
+  height: 200 px;
+  padding: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  background-color: #aaaaaa;
+  text-align: center
+}
+.blur {
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+}
+.alerts
+{
+  background-color: #aa8888;
+  position: fixed;
+  z-index: 10;
+  bottom: 0px;
+  left: 20px;
+  right: 20px;
+  height: 50px;
+  border: none;
+  border-radius: 5px 5px 0px 0px;
+  padding: 5px;
+}
+.alertText
+{
+  width: 100%;
+}
+.mapDiv
+{
+  position: fixed;
+  top: 75px;
+  right: 317 px;
+  left: 17px;
+  bottom: 5px;
+  overflow: scroll;
+  width: 1025;
+  height: 610px;
+}
+.directoryDiv
+{
+  position: fixed;
+  overflow-y: scroll;
+  top: 75px;
+  right: 17px;
+  width: 300px;
+  bottom: 10px;
+}
+.map
+{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 1008px;
+  height: 610px;
+  z-index: 1;
+  // visibility: hidden;
+}
+.mapBorder
+{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 1008px;
+  height: 610px;
+  z-index: 2;
+  filter: blur(2px);
+}
+/*.mapBorder:hover
+{
+  stroke: #ffffff;
+  stroke-width: 2;
+  transition: stroke 0.333s;
+}*/
+.mapBorderGlow
+{
+  stroke: #ffffff;
+  stroke-width: 2;
+  transition: stroke 0.333s;
+}
+.absolute
+{
+  position: absolute;
+}
+.fixed
+{
+  position: fixed;
+}
+.portrait
+{
+  width: 75px;
+}
+.nameCell
+{
+  width: 125px;
+}
+.levelCell
+{
+  width: 50px;
+  right: 0px;
+}
+.header
+{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 195px;
+  background-color: #3c6994;
+  color: #ffffff;
+  font-family: "arial";
+  font-size: 175%;
+  text-indent: 16px;
+  line-height: 68px;
+  z-index: 0;
+}
