@@ -30,7 +30,6 @@ function setArray(characterXML)
   for(var i = 0; i < characterXML.length; i++)
   {
     setArrayRow(characterXML[i],i);
-    //createProfile(i);
   } 
 }
 
@@ -153,23 +152,25 @@ function createProfile(i)
   var out;
   out = '<div class="char"><a id="imgLink" href="';
   out += character[i][7];
-  out += '" target="_blank" ><img id="profilePic" class="portrait" src="'
+  out += '" target="_blank" ><img id="profilePic" class="portraitBig" src="'
   out += character[i][6];
-  out += '" /></a><br /><a id="nameLink" href="'
+  out += '" /></a><a id="nameLink" href="'
   out += character[i][7];
-  out += '" target="_blank" ><span id="name">'
+  out += '" target="_blank"><div id="name" class="profileName">'
   out += character[i][0];
-  out += '</span></a><br /><span id="class">'
+  out += '</div></a><div id="class">'
   out += character[i][1];
-  out += '</span><br /><span id="gender">'
+  out += '</div><div id="gender">'
   out += character[i][2];
-  out += '</span><br /><span id="animal">'
+  out += '</div><div id="animal">'
   out += character[i][3];
-  out += '</span><br /><span id="alignment">'
+  out += '</div><div id="alignment">'
   out += character[i][4];
-  out += '</span><br /><span id="owner">'
+  out += '</div><a id="ownerLink" href="';
+  out += '#'; // Replace this with the owner's URL.
+  out += '" target="_blank"><div id="owner">'
   out += character[i][5];
-  out += '</span><br /></div>';
+  out += '</div></a></div>';
   
   document.getElementById("profiles").innerHTML += out;
 }
@@ -225,6 +226,7 @@ function callRoll()
   alert("Calling roll.");
   
   setArray(directory.getElementsByTagName("pc"));
+  characterSort(0);
   
   for(var i = 0; i < character.length; i++)
   {
