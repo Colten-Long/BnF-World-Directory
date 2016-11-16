@@ -23,17 +23,17 @@ function pageLoadNotice()
 }
 
 // ===== Javascript Data Functions =====
-function setArray(characterXML)
+function setArrayXML(characterXML)
 {
   characterXML = directory.getElementsByTagName("pc");
   alert("Setting array of " + characterXML.length + " player characters.");
   for(var i = 0; i < characterXML.length; i++)
   {
-    setArrayRow(characterXML[i],i);
+    setArrayXMLRow(characterXML[i],i);
   } 
 }
 
-function setArrayRow(characterXML, i)
+function setArrayXMLRow(characterXML, i)
 {
   alert("Setting " + characterXML.getElementsByTagName("fullName")[0].childNodes[0].nodeValue + ".");
   character[i] = [];
@@ -118,6 +118,7 @@ function relocate(i)
   {
     case "Desert Kingdom": character[i][8] = "The Wildlands"; break;
     case "The Wildlands": character[i][8] = "The Wildlands"; break;
+    case "Port Alnnabidh Alssahra'": character[i][8] = "The Wildlands"; break;
     case "The Westlands": character[i][8] = "The Westlands"; break;
     case "Generic Kingdom": character[i][8] = "Generic Kingdom"; break;
     case "GK": character[i][8] = "Generic Kingdom"; break;
@@ -204,6 +205,23 @@ function clickPlace(locationIn)
   fillDirectory(locationIn);
 }
 
+function loadDirectoryPHP()
+{
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function()
+  {
+    if (this.readyState == 4 && this.status == 200)
+    {
+      directory = this.responseText;
+      alert(directory);
+      //alert("Database loaded.");
+    }
+  };
+  xhttp.open("GET", "/cms/records/bnf_characters", true);
+  //xhttp.open("GET", "./directory.xml", true);
+  xhttp.send();
+}
+
 function loadDirectoryXML()
 {
   var xhttp = new XMLHttpRequest();
@@ -225,7 +243,8 @@ function callRoll()
   document.getElementById("profiles").innerHTML = "";
   alert("Calling roll.");
   
-  setArray(directory.getElementsByTagName("pc"));
+  //setArrayXML(directory.getElementsByTagName("pc"));
+  setArrayPHP(directory.getElementsByTagName("records"));
   characterSort(0);
   
   for(var i = 0; i < character.length; i++)
@@ -237,7 +256,7 @@ function callRoll()
 function fillDirectory(locationIn)
 {
   alert("Filling directory.");
-  setArray(directory.getElementsByTagName("pc"));
+  setArrayXML(directory.getElementsByTagName("pc"));
   
   table = "<tr><th>&nbsp;</th></tr>";
 
