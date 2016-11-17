@@ -205,6 +205,22 @@ function clickPlace(locationIn)
   fillDirectory(locationIn);
 }
 
+function loadDirectory()
+{
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function()
+  {
+    if (this.readyState == 4 && this.status == 200)
+    {
+      directory = this.responseText;
+      alert(directory);
+      //alert("Database loaded.");
+    }
+  };
+  xhttp.open("GET", document.getElementById("dataURLBox").value, true);
+  xhttp.send();
+}
+
 function loadDirectoryPHP()
 {
   var xhttp = new XMLHttpRequest();
