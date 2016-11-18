@@ -218,6 +218,9 @@ function loadDirectory()
     }
   };
   xhttp.open("GET", document.getElementById("dataURLBox").value, true);
+  xhttp.setRequestHeader( "Authorization", "Basic " + window.btoa( unescape( encodeURIComponent( "a3939c43e918a9fe323df50e477180d0" ) ) ) );
+  //xhttp.setRequestHeader( "Authorization", "Basic " + "a3939c43e918a9fe323df50e477180d0");
+  //xhttp.setRequestHeader( "Authorization", "Basic " + window.btoa( unescape( encodeURIComponent( 'exxxxxxxxxxxxxxxxxxxxxxxxe' ) ) ) );
   xhttp.send();
 }
 
@@ -233,7 +236,7 @@ function loadDirectoryPHP()
       //alert("Database loaded.");
     }
   };
-  xhttp.open("GET", "/cms/records/bnf_characters", true);
+  xhttp.open("GET", "api/cms/records/bnf_characters", true);
   //xhttp.open("GET", "./directory.xml", true);
   xhttp.send();
 }
