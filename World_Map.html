@@ -4,13 +4,13 @@
     <link rel="stylesheet" type="text/css" href="directory.css">
     <link rel='shortcut icon' href='http://www.bnfworld.com/uploads/monthly_2016_08/bnflogo.ico.71a1cdda7438caa46759e88fd84013eb.ico'>
   </head>
-  <body onload="loadDirectoryXML()">
-    <div class="header">
+  <body class="grayBody" onload="loadDirectoryXML()">
+    <div class="directory header">
       <a href="http://www.bnfworld.com/" target="_blank">Bunny and Fox World</a>
     </div>
-    <div class="mapDiv">
+    <div class="directory mapDiv">
       <img class="map" src="https://dl.dropboxusercontent.com/u/11358122/BnF/WorldMap.png" width="1008" height="610" alt="World Map" />
-      <svg alt="Map Borders">
+      <svg class="directorySVG" alt="Map Borders">
         <polygon id="nipps" class="mapBorder" points="173,0,313,0,313,15,294,33,293,52,275,75,265,80, 262,76, 262,62, 254,51, 250,50, 246,47, 240,46, 237,45, 232,47, 228,48, 221,57, 218,66, 217,68, 217,70, 223,77, 223,80, 215,81,204,76,192,52,190,36,181,35,172,26" onmouseenter="applyGlow(['nipps','nippsIsland1'])" onmouseleave="removeGlow(['nipps','nippsIsland1'])" onclick="clickPlace('The Nipps')" />
         <polygon id="nippsIsland1" class="mapBorder" points="234,66, 236,65, 240,65, 241,66, 241,70, 239,71, 238,71, 234,69" onmouseenter="applyGlow(['nipps','nippsIsland1'])" onmouseleave="removeGlow(['nipps','nippsIsland1'])" onclick="clickPlace('The Nipps')" />
         <polygon id="westlands" class="mapBorder" points="141,144,152,134,173,127,217,111,255,110,270,104,312,105,332,109,343,102,372,84,385,85,412,94,421,101,414,198,408,211,397,224,393,232,383,250,381,260,380,272, 378,274, 374,277, 376,281, 378,289, 370,295, 370,299, 373,302, 373,307, 369,312, 369,315, 371,317, 371,320, 369,323,  371,330,365,344,354,354,349,354,330,345,325,347,315,346,310,345,306,342,295,342,287,344, 280,343, 278,344, 274,345, 263,353, 259,354, 253,359, 253,361, 257,366, 259,365, 261,368, 264,367, 269,367, 272,364, 276,363, 277,363, 282,361, 285,361, 285,362, 284,362, 280,366, 275,377,262,382,256,379,238,378,224,368,220,356,213,354,195,354,192,351,184,351,171,348,162,344,157,344,150,340,148,336,151,333,151,318,153,304,161,290,162,274,166,265,174,253,179,249,179,241,180,238,180,232,167,214,167,215,162,213,161,208,158,206,156,202,151,197,148,190,152,184,151,176,150,168,150,156,141,148"  onmouseenter="applyGlow(['westlands'])" onmouseleave="removeGlow(['westlands'])" onclick="clickPlace('The Westlands')" />
@@ -25,10 +25,10 @@
       </svg>
     </div>
     <div class="directoryDiv">
-      <table>
-        <tr class='absolute'><th class='portrait'>Portrait</th><th class='nameCell'>Name</th><th class='levelCell'>Level</th></tr>
+      <table class="directory">
+        <tr class="directory absolute"><th class="directory portrait">Portrait</th><th class="directory nameCell">Name</th><th class="directory levelCell">Level</th></tr>
       </table>
-      <table id="directoryTable" sortable="true" />
+      <table id="directoryTable" class="directory" sortable="true" />
     </div>
     <div class="profileDiv">
     </div>

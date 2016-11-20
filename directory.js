@@ -151,11 +151,11 @@ function relocate(i)
 function createProfile(i)
 {
   var out;
-  out = '<div class="char"><a id="imgLink" href="';
+  out = '<div class="charDiv"><a id="imgLink" class="whiteLink" href="';
   out += character[i][7];
   out += '" target="_blank" ><img id="profilePic" class="portraitBig" src="'
   out += character[i][6];
-  out += '" /></a><a id="nameLink" href="'
+  out += '" /></a><a id="nameLink" class="whiteLink" href="'
   out += character[i][7];
   out += '" target="_blank"><div id="name" class="profileName">'
   out += character[i][0];
@@ -167,7 +167,7 @@ function createProfile(i)
   out += character[i][3];
   out += '</div><div id="alignment">'
   out += character[i][4];
-  out += '</div><a id="ownerLink" href="';
+  out += '</div><a id="ownerLink" class="whiteLink" href="';
   out += '#'; // Replace this with the owner's URL.
   out += '" target="_blank"><div id="owner">'
   out += character[i][5];
@@ -179,11 +179,11 @@ function createProfile(i)
 function characterRow(i)
 {
   alert("Character Row " + character[i][0]);
-  table += "<tr><td><a href='";
+  table += "<tr><td><a class="whiteLink" href='";
   table += character[i][7];
   table += "' target='_blank'><img class='portrait' src='";
   table += character[i][6];
-  table += "' /></a></td><td class='nameCell'><a href='";
+  table += "' /></a></td><td class='nameCell'><a class="whiteLink" href='";
   table += character[i][7];
   table += "' target='_blank'>";
   table += character[i][0];
@@ -205,7 +205,7 @@ function clickPlace(locationIn)
   fillDirectory(locationIn);
 }
 
-function loadDirectory()
+function loadDirectoryWithHeader()
 {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function()
@@ -221,6 +221,22 @@ function loadDirectory()
   xhttp.setRequestHeader( "Authorization", "Basic " + window.btoa( unescape( encodeURIComponent( "a3939c43e918a9fe323df50e477180d0" ) ) ) );
   //xhttp.setRequestHeader( "Authorization", "Basic " + "a3939c43e918a9fe323df50e477180d0");
   //xhttp.setRequestHeader( "Authorization", "Basic " + window.btoa( unescape( encodeURIComponent( 'exxxxxxxxxxxxxxxxxxxxxxxxe' ) ) ) );
+  xhttp.send();
+}
+
+function loadDirectory()
+{
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function()
+  {
+    if (this.readyState == 4 && this.status == 200)
+    {
+      directory = this.responseText;
+      alert(directory);
+      //alert("Database loaded.");
+    }
+  };
+  xhttp.open("GET", document.getElementById("dataURLBox").value, true);
   xhttp.send();
 }
 
