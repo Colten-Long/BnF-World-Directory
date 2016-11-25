@@ -9,7 +9,7 @@ function loadCharacters()
 {
   var output = "";
   <?php
-  {{foreach $record as $character}}
+  {{foreach $bnf_characters as $id => $character}}
     //echo "output += {$character_full_name};";
     echo "output += $character->character_full_name;";//Note the minus sign in the pipe.
     echo "output += {$character->character_full_name};";
